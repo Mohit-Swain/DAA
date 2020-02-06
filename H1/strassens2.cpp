@@ -1,11 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
-void Copy(int **a,int ** b,int **c,int n,int i1,int j1){
-    for(int i=0;i< n;i++){
-        for(int j=0;j< n;j++){
-            b[i1 + i][j1 + j] = a[i][j];
+int* neg(int *a,int n){
+    int *A;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            *((A+n*i)+j) = - *((a+n*i)+j);
         }
     }
+    return A;
 }
 void add(int **a,int **b,int **c,int n,int i1,int j1){
     
@@ -39,6 +41,8 @@ int ** mul(int* A,int* B,int n){
     int *f = ((B+n*0)+n/2);
     int *g = ((B+n*n/2)+0);
     int *h = ((B+n*n/2)+n/2);
+
+    
 
     int **ae = mul(a,e ,n/2);
     int **bg = mul(b,g ,n/2);
